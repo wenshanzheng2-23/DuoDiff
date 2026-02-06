@@ -12,12 +12,12 @@ This is the official implementation (README) for the paper **DuoDiff: Dual-Strea
 
 ## Highlights
 
-- **One-step diffusion for efficient NVS**: DuoDiff performs novel view synthesis with a **single denoising step**, targeting fast inference while maintaining high visual fidelity. :contentReference[oaicite:2]{index=2}  
-- **Continuous geometric prior**: a point-cloud projection prior is densified via **RBF interpolation**, reducing holes and projection noise to better stabilize geometry. :contentReference[oaicite:3]{index=3}  
+- **One-step diffusion for efficient NVS**: DuoDiff performs novel view synthesis with a **single denoising step**, targeting fast inference while maintaining high visual fidelity.   
+- **Continuous geometric prior**: a point-cloud projection prior is densified via **RBF interpolation**, reducing holes and projection noise to better stabilize geometry. 
 - **Dual-stream decoupling (Structure / Content)** to alleviate geometry–texture conflict in one-step generation:  
-  - **Structure encoder** leverages **neighboring-view complementarity** to handle occlusions and geometric ambiguity. :contentReference[oaicite:4]{index=4}  
-  - **Content encoder** performs **dynamic view selection** (based on pose/optical-axis similarity) to preserve fine texture and prevent style drift. :contentReference[oaicite:5]{index=5}  
-- **Zero-Convolution residual injection + LoRA**: decoupled conditions are injected into an SD-Turbo U-Net through residual blocks for strong constraint adherence in one step. :contentReference[oaicite:6]{index=6}  
+  - **Structure encoder** leverages **neighboring-view complementarity** to handle occlusions and geometric ambiguity. 
+  - **Content encoder** performs **dynamic view selection** (based on pose/optical-axis similarity) to preserve fine texture and prevent style drift.
+ 
 <p align="center">
   <img src="assets/comparsion.pdf" width="800" />
 
@@ -37,10 +37,7 @@ This is the official implementation (README) for the paper **DuoDiff: Dual-Strea
 - [Environment Setup](#environment-setup)
 - [Data Preparation](#data-preparation)
 - [Quick Start: Training & Evaluation](#quick-start-training--evaluation)
-- [Results](#results)
-- [Acknowledgements](#acknowledgements)
-- [Citation](#citation)
-- [License](#license)
+
 
 ---
 
