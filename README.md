@@ -17,19 +17,17 @@ This is the official implementation (README) for the paper **DuoDiff: Dual-Strea
   - **Structure encoder** leverages **neighboring-view complementarity** to handle occlusions and geometric ambiguity. 
   - **Content encoder** performs **dynamic view selection** (based on pose/optical-axis similarity) to preserve fine texture and prevent style drift.
  
-<!-- <p align="center">
-  <img src="assets/comparsion.pdf" width="800" />
+<p align="center">
+  <img src="assets/comparsion.png" width="800" />
 
   <em>Figure 1: DuoDiff generates high-fidelity novel views under sparse inputs and large viewpoint changes.</em>
 </p>
 <p align="center">
-  <img src="assets/vggt.pdf" width="800" />
+  <img src="assets/vggt.png" width="800" />
 
   <em>Figure 2: 3D reconstruction results from synthesized novel views on the DL3DV test set.</em>
-</p> -->
+</p>
 
-**Figure 1 (PDF):** [View comparsion](assets/comparsion.pdf)  
-**Figure 2 (PDF):** [View vggt](assets/vggt.pdf)
 
 ---
 
@@ -46,7 +44,7 @@ This is the official implementation (README) for the paper **DuoDiff: Dual-Strea
 
 DuoDiff formulates NVS as **conditional one-step diffusion** guided by a **continuous geometry prior** and **dual-stream encoder features**:
 <p align="center">
-  <img src="assets/main.pdf" alt="DuoDiff Framework" width="900" />
+  <img src="assets/main.png" alt="DuoDiff Framework" width="900" />
 </p>
 
 1. **Geometry Prior Construction**
