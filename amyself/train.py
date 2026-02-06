@@ -63,7 +63,7 @@ def main(args):
         else:
             raise ValueError("xformers is not available, please install it by running `pip install xformers`")
 
-    if args.gradient_checkpointing:  # 启用梯度检查点，换算显存 <-> 计算量
+    if args.gradient_checkpointing: 
         net_difix.unet.enable_gradient_checkpointing()
 
     if args.allow_tf32:
@@ -83,30 +83,15 @@ def main(args):
 
     layers_to_opt = []
 
-    # 先确保这些层的 requires_grad 已在 net_difix.set_train() 里打开
-    # 1) DEC
     if hasattr(net_difix, "dec") and net_difix.dec is not None:
         layers_to_opt += [p for p in net_difix.dec.parameters() if p.requires_grad]
 
-    # 2) 注入块（前两层是 InjectXAttnBlock，后两层可能是 InjectIdentity(无参)）
+
     if hasattr(net_difix, "inj_xattn"):
         for blk in net_difix.inj_xattn:
             layers_to_opt += [p for p in blk.parameters() if p.requires_grad]
 
-    # # 3) 注入归一化（GroupNorm）
-    # if hasattr(net_difix, "inj_norms"):
-    #     layers_to_opt += [p for p in net_difix.inj_norms.parameters() if p.requires_grad]
-
-    # # 4) 1×1 适配器（ZeroConv/Adapter）
-    # if hasattr(net_difix, "dec_adapters"):
-    #     layers_to_opt += [p for p in net_difix.dec_adapters.parameters() if p.requires_grad]
-
-    # # 5) 门控（nn.Parameter）
-    # if hasattr(net_difix, "dec_gates"):
-    #     if net_difix.dec_gates.requires_grad:
-    #         layers_to_opt.append(net_difix.dec_gates)
-
-    # 构建优化器
+    
     optimizer = torch.optim.AdamW(
         layers_to_opt,
         lr=args.learning_rate,
@@ -115,11 +100,11 @@ def main(args):
         eps=args.adam_epsilon,
     )
 
-    # 自检（可选）
+
     req = sum(p.numel() for p in net_difix.parameters() if p.requires_grad)
     in_optim = sum(p.numel() for g in optimizer.param_groups for p in g["params"])
     print(f"requires_grad: {req/1e6:.2f}M | in_optim: {in_optim/1e6:.2f}M")
-    assert req == in_optim, "有可训练参数没加入 optimizer！"
+    assert req == in_optim, " optimizer！"
 
 
 
@@ -241,7 +226,7 @@ def main(args):
                 
 
             # Checks if the accelerator has performed an optimization step behind the scenes
-            if accelerator.sync_gradients:   #日志和可视化
+            if accelerator.sync_gradients:   
                 progress_bar.update(1)
                 global_step += 1
 
