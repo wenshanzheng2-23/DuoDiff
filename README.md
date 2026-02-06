@@ -5,8 +5,7 @@
 [![CUDA](https://img.shields.io/badge/CUDA-supported-76B900?logo=nvidia)](https://developer.nvidia.com/cuda-toolkit)
 [![License](https://img.shields.io/badge/License-TBD-yellow.svg)](#license)
 
-This is the official implementation (README) for the paper **DuoDiff: Dual-Stream Encoder-Guided One-Step Diffusion for Novel View Synthesis**. :contentReference[oaicite:0]{index=0}  
-*(README format adapted from a GitHub template style you provided.)* :contentReference[oaicite:1]{index=1}
+This is the official implementation (README) for the paper **DuoDiff: Dual-Stream Encoder-Guided One-Step Diffusion for Novel View Synthesis**.  
 
 ---
 
@@ -18,7 +17,7 @@ This is the official implementation (README) for the paper **DuoDiff: Dual-Strea
   - **Structure encoder** leverages **neighboring-view complementarity** to handle occlusions and geometric ambiguity. 
   - **Content encoder** performs **dynamic view selection** (based on pose/optical-axis similarity) to preserve fine texture and prevent style drift.
  
-<p align="center">
+<!-- <p align="center">
   <img src="assets/comparsion.pdf" width="800" />
 
   <em>Figure 1: DuoDiff generates high-fidelity novel views under sparse inputs and large viewpoint changes.</em>
@@ -27,8 +26,10 @@ This is the official implementation (README) for the paper **DuoDiff: Dual-Strea
   <img src="assets/vggt.pdf" width="800" />
 
   <em>Figure 2: 3D reconstruction results from synthesized novel views on the DL3DV test set.</em>
-</p>
+</p> -->
 
+**Figure 1 (PDF):** [View comparsion](assets/comparsion.pdf)  
+**Figure 2 (PDF):** [View vggt](assets/vggt.pdf)
 
 ---
 
